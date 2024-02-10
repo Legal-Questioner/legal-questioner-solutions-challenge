@@ -1,0 +1,102 @@
+.App {
+  background: var(--colour-secondary-white-100-general, #E7ECFF);
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.Home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Home-graphic {
+  height: 829px;
+  width: 600px;
+}
+
+.Search {
+  text-align: center;
+}
+
+.About {
+  text-align: center;
+}
+
+.header {
+  color: var(--Colour-Main-Blue-900, #091133);
+  font-feature-settings: 'clig' off, 'liga' off;
+  
+  /* Medium 50 */
+  font-family: Roboto;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 66px; /* 132% */
+  letter-spacing: 1px;
+}
+
+.body {
+  color: var(--Colour-Main-Blue-500, #091133);
+  font-feature-settings: 'clig' off, 'liga' off;
+
+  /* Regular 18 */
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 166.667% */
+}
+
+nav {
+  border-bottom: 4px solid #091133;
+  text-align: left;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-style: normal;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #091133;
+  font-weight: bold;
+  padding: 24px 32px;
+}
+
+nav a:hover {
+  background: #091133;
+  color: white;
+}
+
+.nav-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.nav-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
