@@ -29,11 +29,6 @@ function App() {
 
     const respString = response.data.summary;
     console.log(respString);
-
-    const startIndex = respString.indexOf('text: "');
-    const endIndex = respString.indexOf('finish_reason:');
-
-    console.log(startIndex, endIndex);
     setGeminiReponse(respString);
   }
 
