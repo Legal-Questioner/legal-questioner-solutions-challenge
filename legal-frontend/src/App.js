@@ -34,7 +34,7 @@ function App() {
     const endIndex = respString.indexOf('finish_reason:');
 
     console.log(startIndex, endIndex);
-    setGeminiReponse(respString.substring(startIndex+7, endIndex-14).replace(/\\n/g, '').replace(/\\/g, ''));
+    setGeminiReponse(respString);
   }
 
   useEffect(() => {
@@ -72,9 +72,9 @@ function App() {
         </div>
 
         <p className='header mt-10'>Response</p>
-        <div className="font-serif mt-4 px-32">
-          {geminiResponse ? geminiResponse : "Your answer will be shown here!"}
-        </div>
+        <div className="font-serif mt-4 px-32"
+          dangerouslySetInnerHTML={{ __html: geminiResponse ? geminiResponse : "<p>Your answer will be shown here!</p>" }}
+        />
 
         <p className='font-serif mt-6 font-bold'>{geminiResponse ? "Sources" : ""}</p>
         <a href={searchLinks[0]} target="_blank" rel="noreferrer" className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">

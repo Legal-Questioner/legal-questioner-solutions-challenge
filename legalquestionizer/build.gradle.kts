@@ -28,6 +28,9 @@ dependencies {
 
   implementation("com.google.cloud:google-cloud-vertexai:0.1.0")
   implementation("io.github.cdimascio:dotenv-java:3.0.0")
+
+  implementation("org.commonmark:commonmark:0.21.0")
+  implementation("com.google.code.gson:gson:2.10.1")
 }
 
 tasks.withType<Test> {
