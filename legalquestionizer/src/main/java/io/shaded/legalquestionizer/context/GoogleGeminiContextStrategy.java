@@ -4,6 +4,9 @@ import com.google.cloud.vertexai.VertexAI;
 import com.google.cloud.vertexai.generativeai.preview.GenerativeModel;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.apache.tomcat.util.buf.StringUtils;
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -61,7 +64,20 @@ public class GoogleGeminiContextStrategy implements ContextStrategy {
   public String getSimplification(String question,
                                   List<String> documentTexts) throws IOException {
     final String query = formatToGeminiQuery(question, documentTexts);
-    return model.generateContent(query).toString();
+    final String response = model.generateContent(query)
+        .getCandidates(0)
+        .getContent()
+        .getParts(0)
+        .getText();
+
+    return formatToHTML(response);
+  }
+
+  private String formatToHTML(String markdownString) {
+    Parser parser = Parser.builder().build();
+    Node document = parser.parse(markdownString);
+    HtmlRenderer renderer = HtmlRenderer.builder().build();
+    return renderer.render(document);
   }
 
   private String formatToGeminiQuery(String question,
